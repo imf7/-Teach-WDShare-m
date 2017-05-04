@@ -12,9 +12,11 @@
 请用手机访问：[https://imf7.github.io/Teach-WDShare-m-for-sui/dist/index.html](https://imf7.github.io/Teach-WDShare-m-for-sui/dist/index.html)
 
 或者扫描二维码：
+
 ![](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/code.jpg)
 
 不方便手机的请查看截图：
+
 [![](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/001-s.jpg)](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/001.jpg) [![](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/002-s.jpg)](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/002.jpg) [![](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/003-s.jpg)](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/003.jpg) [![](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/004-s.jpg)](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/004.jpg) [![](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/005-s.jpg)](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/005.jpg) [![](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/006-s.jpg)](https://imf7.github.io/Teach-WDShare-m-for-sui/doc/img/006.jpg)
 
 ## 是否使用UI框架，为什么？
@@ -38,12 +40,41 @@
 
 
 ## 框架的基本使用
+该框架使用非常简单，无需任何工程化，直接引用静态资源文件即可使用。
+```html
+<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+```
 
+如果你用到了拓展包中的组件，还需要引用extend扩展包：
+```html
+<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/??sm.min.js,sm-extend.min.js' charset='utf-8'></script>
+```
+
+当然，上面这些引用的地址都是官方给的CDN地址，你可以去官网下载对应的静态资源放到你的本地来引用。
+
+官方的使用解说：[http://m.sui.taobao.org/getting-started/](http://m.sui.taobao.org/getting-started/)
+
+这是我们给出的Hello World案例：[https://imf7.github.io/Teach-WDShare-m-for-sui/example/hello.html](https://imf7.github.io/Teach-WDShare-m-for-sui/example/hello.html)
+
+案例中有两点要解释：
+ * 1、$.init();为框架暴漏的初始化方法，使用该框架的页面必须引用这个才能正确出发所有组件；
+ * 2、案例中注册了一个click事件，但是用的是事件代理模式，是为了防止该页面的内容是后写进去的，建议使用该框架时都这样注册事件，因为我们要用到路由加载外部页面，原理就是后写入html内容进去。
 
 
 ## 我们担心的问题
+真正使用一个框架前先要确认我们担心的一些问题都能够解决，来看看解决了上面的需求后，我们还担心那些问题呢？
 
+* 1、路由如何使用，他们之间的切换是否流畅
+* 2、路由分页面内切换和独立页面间的切换，切换后当前页面组件是否可以正常使用，是否可以触发一些事件来出列其他事情，例如切换成功后ajax读取一些信息
+* 3、UI样式不满足的情况下是否比较容易扩展和微调来满足我们的需求
+* 4、侧栏功能可否顺利使用，并应用到全站
 
+### 路由如何使用
+看这样一个Demo：[https://imf7.github.io/Teach-WDShare-m-for-sui/example/router.html](https://imf7.github.io/Teach-WDShare-m-for-sui/example/router.html)
+路由分内联和外部两种，内联也就是页面内的某个路由模块，外联是独立存在的外部页面。
 
 ## 开始编写首页
 

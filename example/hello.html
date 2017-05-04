@@ -1,0 +1,50 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Hello World SUI</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link rel="stylesheet" href="../dist/static/sui/css/sm.min.css">
+  <link rel="stylesheet" href="../dist/static/sui/css/sm-extend.min.css">
+
+</head>
+<body>
+  <div class="page-group">
+      <div class="page">
+          <!-- 标题栏 -->
+          <header class="bar bar-nav">
+              <a class="icon icon-me pull-left"></a>
+              <h1 class="title">标题</h1>
+          </header>
+          <!-- 这里是页面内容区 -->
+          <div class="content">
+              <div class="content-block">
+                Hello World
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <a href="javascript:;" class="button click-dialog">点我出现提示框！</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script src='../dist/static/sui/js/zepto.min.js'></script>
+  <script src='../dist/static/sui/js/sm.js'></script>
+  <script src='../dist/static/sui/js/sm-extend.js'></script>
+  <script>
+    $.init();
+
+    $(function(){
+     $(document).on('click','.click-dialog',function () {
+        $.alert('HI! 朋友');
+     });
+    })
+  </script>
+</body>
+</html>
